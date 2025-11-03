@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model BackupJob {
+  id           String    @id @default(cuid())
+  resourceType String
+  resourceId   String
+  schedule     String
+  status       String     @default("active")
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  runs         JobRun[]
+}
+
+model JobRun {
+  id         String        @id @default(cuid())
+  jobId      String
+  job        BackupJob     @relation(fields: [jobId], references: [id])
+  startedAt  DateTime      @default(now())
+  endedAt    DateTime?
+  status     String        @default("pending")
+  metrics    Json?
+  error      String?
+  checks     IntegrityCheck[]
+
+  @@index([jobId, startedAt])
+}
+
+model IntegrityCheck {
+  id       String   @id @default(cuid())
+  runId    String
+  run      JobRun   @relation(fields: [runId], references: [id])
+  type     String
+  result   String
+  details  Json?
+  createdAt DateTime @default(now())
+
+  @@index([runId])
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  action    String
+  entity    String
+  entityId  String?
+  actor     String?
+  createdAt DateTime @default(now())
+  meta      Json?
+}
+

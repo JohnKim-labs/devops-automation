@@ -1,0 +1,69 @@
+{
+  "database_name": "Youhak.com Maintenance & Backup Log",
+  "properties": {
+    "Date": {
+      "type": "date"
+    },
+    "Week": {
+      "type": "select",
+      "options": [
+        "1주차",
+        "2주차",
+        "3주차",
+        "4주차"
+      ]
+    },
+    "Category": {
+      "type": "multi_select",
+      "options": [
+        "AWS Snapshot",
+        "RDS Dump",
+        "S3 Sync",
+        "GitHub Mirror",
+        "Local HDD Backup",
+        "보안 점검",
+        "복원 테스트"
+      ]
+    },
+    "Status": {
+      "type": "status",
+      "options": [
+        "✅ 완료",
+        "⚠️ 점검필요",
+        "❌ 실패"
+      ]
+    },
+    "Summary": {
+      "type": "rich_text"
+    },
+    "System_Health": {
+      "type": "select",
+      "options": [
+        "정상",
+        "주의",
+        "이상"
+      ]
+    },
+    "Backup_Size": {
+      "type": "number"
+    },
+    "DB_Verified": {
+      "type": "checkbox"
+    },
+    "Security_Check": {
+      "type": "checkbox"
+    },
+    "Slack_Log_Link": {
+      "type": "url"
+    },
+    "Report_Link": {
+      "type": "url"
+    },
+    "Improvement": {
+      "type": "rich_text"
+    },
+    "Manager": {
+      "type": "people"
+    }
+  }
+}
