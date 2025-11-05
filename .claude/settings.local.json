@@ -4,7 +4,10 @@
       "Bash(dir:*)",
       "Bash(npm install:*)",
       "Bash(npm run build:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: Complete DevOps automation platform with full infrastructure\n\nPhase 1: Backup automation\n- Add EBS, RDS, S3, and Local HDD backup support\n- Implement backup job scheduling with node-cron\n- Add backup execution and status tracking\n\nPhase 2: Monitoring and alerts\n- Integrate CloudWatch metrics for backup operations\n- Add Slack notifications for success/failure/weekly reports\n- Implement Notion API integration for backup logging\n\nPhase 3: Infrastructure and deployment\n- Complete Terraform configuration (VPC, ECS, RDS, ALB, S3, CloudFront)\n- Add CloudWatch alarms for ECS, RDS, ALB, and backup failures\n- Create Dockerfile for backend containerization\n- Set up GitHub Actions CI/CD workflows for deployment\n- Configure Terraform S3 backend for state management\n\nPhase 4: Testing and quality\n- Add Jest testing framework for backend\n- Create unit tests for JobsService and IntegrityService\n- Add E2E tests for API endpoints\n- Set up Vitest for frontend testing\n- Integrate testing into CI/CD pipeline\n\nDocumentation:\n- Add comprehensive deployment guide (DEPLOYMENT.md)\n- Create quick start guide (QUICKSTART.md)\n- Add deployment checklist (DEPLOYMENT_CHECKLIST.md)\n- Document Slack and Notion integrations (INTEGRATIONS.md)\n- Update README with project overview\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push:*)",
+      "Bash(gh auth:*)"
     ],
     "deny": [],
     "ask": []
